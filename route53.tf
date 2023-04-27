@@ -10,6 +10,7 @@ locals {
 }
 
 resource "aws_route53_record" "web" {
+  count   = var.web_want == true ? 1 : 0
   zone_id = data.aws_route53_zone.hosted_zone.zone_id
   name    = var.web_sub_domain_name
   type    = "A"
@@ -18,6 +19,7 @@ resource "aws_route53_record" "web" {
 }
 
 resource "aws_route53_record" "mail" {
+  count   = var.mail_want == true ? 1 : 0
   zone_id = data.aws_route53_zone.hosted_zone.zone_id
   name    = var.mail_sub_domain_name
   type    = "A"
@@ -26,6 +28,7 @@ resource "aws_route53_record" "mail" {
 }
 
 resource "aws_route53_record" "db" {
+  count   = var.db_want == true ? 1 : 0
   zone_id = data.aws_route53_zone.hosted_zone.zone_id
   name    = var.db_sub_domain_name
   type    = "A"
