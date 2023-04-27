@@ -1,6 +1,5 @@
 variable "my_region" {
     type = string
-    default = "ap-south-1"
     description = "This variable is used to specify region"
 }
 
@@ -15,24 +14,27 @@ variable "key_name" {
 
 variable "web_want" {
     type = bool
-    default = true
 }
 
 variable "web_count" {
     type = number
-    default = 1
   
 }
 
 variable "mail_want" {
     type = bool
-    default = true
 }
 
 variable "mail_count" {
+    type = number 
+}
+
+variable "db_want" {
+    type = bool
+}    
+
+variable "db_count" {
     type = number
-    default = 1
-  
 }
 
 variable "domain_name" {
@@ -44,6 +46,10 @@ variable "web_sub_domain_name" {
 }
 
 variable "mail_sub_domain_name" {
+    type = string
+}
+
+variable "db_sub_domain_name" {
     type = string
 }
 
